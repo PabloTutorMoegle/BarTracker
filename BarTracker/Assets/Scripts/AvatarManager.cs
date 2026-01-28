@@ -4,7 +4,7 @@ using UnityEngine;
 public class AvatarManager : MonoBehaviour
 {
     public GameObject avatarPrefab; // Arrastra aquí tu modelo 3D
-    public float smoothing = 5f;    // Para que no se mueva a saltos
+    public float smoothing = 10f;    // Para que no se mueva a saltos
     
     // Diccionario para rastrear quién es quién
     private Dictionary<int, GameObject> activeAvatars = new Dictionary<int, GameObject>();
