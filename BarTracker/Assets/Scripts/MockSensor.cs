@@ -34,5 +34,7 @@ public class MockSensor : MonoBehaviour
         if (keyboard.wKey.wasPressedThisFrame) {
             avatarManager.RemoveAvatar(2);
         }
+
+        
     }
 }        

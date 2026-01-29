@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cee235bdf0cf4478beb37f0958bc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatarPrefab: {fileID: 8869860974351387637, guid: 6638598bffd24c143a7b9ee3afbb4a34, type: 3}
+  avatarPrefab: {fileID: 4512662344387143382, guid: 9f433b9bda7ae7d48af3d8ddde9c386c, type: 3}
   smoothing: 5
 --- !u!4 &736626626
 Transform:
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarManager: {fileID: 736626625}
-  rangeX: 6.8
+  rangeX: 9
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

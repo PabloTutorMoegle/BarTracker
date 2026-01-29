@@ -9,6 +9,25 @@ public class AvatarManager : MonoBehaviour
     // Diccionario para rastrear quién es quién
     private Dictionary<int, GameObject> activeAvatars = new Dictionary<int, GameObject>();
 
+
+    public void Update ()
+    {
+        if (activeAvatars.ContainsKey(1))
+        {
+            // Suavizar movimiento de Avatar 1 y hacer que camine hacia adelante
+            GameObject avatar1 = activeAvatars[1];
+            avatar1.transform.position += avatar1.transform.right * Time.deltaTime * 1.5f; // Velocidad de caminata
+            avatar1.transform.position = Vector3.Lerp(avatar1.transform.position, avatar1.transform.position, Time.deltaTime * smoothing);
+        }
+        if (activeAvatars.ContainsKey(2))
+        {
+            // Suavizar movimiento de Avatar 2 y hacer que camine hacia adelante
+            GameObject avatar2 = activeAvatars[2];
+            avatar2.transform.position += -avatar2.transform.right * Time.deltaTime * 1.5f; // Velocidad de caminata
+            avatar2.transform.position = Vector3.Lerp(avatar2.transform.position, avatar2.transform.position, Time.deltaTime * smoothing);
+        }
+    }
+
     // Esta función la llamaremos cuando llegue un dato de la cámara
     public void UpdateAvatar(int id, Vector3 targetPosition)
     {
