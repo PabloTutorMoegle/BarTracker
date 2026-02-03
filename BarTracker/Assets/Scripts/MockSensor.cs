@@ -5,6 +5,7 @@ public class MockSensor : MonoBehaviour
 {
     public AvatarManager avatarManager;
     public float rangeX;
+    private int personCount = 0;
     
     void Update()
     {
@@ -14,7 +15,7 @@ public class MockSensor : MonoBehaviour
 
         // 1. Crear o Actualizar Persona #1 (Tecla 1)
         if (keyboard.digit1Key.isPressed) {
-            Vector3 fakePos = new Vector3(-rangeX, 2, 1);
+            Vector3 fakePos = new Vector3(-rangeX, 0, 0);
             avatarManager.UpdateAvatar(1, fakePos);
         }
 
@@ -26,7 +27,7 @@ public class MockSensor : MonoBehaviour
         // Repite lo mismo para la tecla 2 (digit2Key) y W (wKey)
         // 3. Crear o Actualizar Persona #2 (Tecla 2)
         if (keyboard.digit2Key.isPressed) {
-            Vector3 fakePos = new Vector3(rangeX, 2, 1);
+            Vector3 fakePos = new Vector3(rangeX, 0, 0);
             avatarManager.UpdateAvatar(2, fakePos);
         }
 

@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class AvatarManager : MonoBehaviour
 {
-    public GameObject avatarPrefab; // Arrastra aquí tu modelo 3D
-    public float smoothing = 10f;    // Para que no se mueva a saltos
+    public List<GameObject> avatarPrefab; // Arrastra aquí tu modelo 3D
+    public float smoothing;    // Para que no se mueva a saltos
+    public float speed;       // Velocidad de caminata
     
     // Diccionario para rastrear quién es quién
     private Dictionary<int, GameObject> activeAvatars = new Dictionary<int, GameObject>();
@@ -16,14 +17,14 @@ public class AvatarManager : MonoBehaviour
         {
             // Suavizar movimiento de Avatar 1 y hacer que camine hacia adelante
             GameObject avatar1 = activeAvatars[1];
-            avatar1.transform.position += avatar1.transform.right * Time.deltaTime * 1.5f; // Velocidad de caminata
+            avatar1.transform.position += avatar1.transform.right * Time.deltaTime * speed; // Velocidad de caminata
             avatar1.transform.position = Vector3.Lerp(avatar1.transform.position, avatar1.transform.position, Time.deltaTime * smoothing);
         }
         if (activeAvatars.ContainsKey(2))
         {
             // Suavizar movimiento de Avatar 2 y hacer que camine hacia adelante
             GameObject avatar2 = activeAvatars[2];
-            avatar2.transform.position += -avatar2.transform.right * Time.deltaTime * 1.5f; // Velocidad de caminata
+            avatar2.transform.position += -avatar2.transform.right * Time.deltaTime * speed; // Velocidad de caminata
             avatar2.transform.position = Vector3.Lerp(avatar2.transform.position, avatar2.transform.position, Time.deltaTime * smoothing);
         }
     }
@@ -40,7 +41,8 @@ public class AvatarManager : MonoBehaviour
         else
         {
             // Si es nuevo, lo creamos
-            GameObject newAvatar = Instantiate(avatarPrefab, targetPosition, Quaternion.identity);
+            int num = Random.Range(0, avatarPrefab.Count);
+            GameObject newAvatar = Instantiate(avatarPrefab[num], targetPosition, Quaternion.identity);
             newAvatar.name = "Avatar_" + id;
             activeAvatars.Add(id, newAvatar);
         }
